@@ -36,6 +36,7 @@ var app = {
         app.receivedEvent('deviceready');
         alert('ready');
 //        alert(Media);
+alert(navigator.getUserMedia);
 
 document.getElementById("audioCapture").addEventListener("click", audioCapture);
 
