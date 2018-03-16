@@ -33,12 +33,14 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
+        var myMedia = null;
         app.receivedEvent('deviceready');
         alert('ready');
 //        alert(Media);
 alert(navigator.getUserMedia);
 
 document.getElementById("audioCapture").addEventListener("click", audioCapture);
+document.getElementById("playAudio").addEventListener("click", playAudio);
 
         cordova.plugins.notification.local.schedule({
             title: 'My first notification',
@@ -85,6 +87,25 @@ document.getElementById("audioCapture").addEventListener("click", audioCapture);
 
 
 };
+
+
+function playAudio() {
+   var src = "https://signellingsvr360owl.herokuapp.com/doorbell.mp3";
+
+   if(myMedia === null) {
+      myMedia = new Media(src, onSuccess, onError);
+
+      function onSuccess() {
+         console.log("playAudio Success");
+      }
+
+      function onError(error) {
+         console.log("playAudio Error: " + error.code);
+      }
+   }
+   myMedia.play();
+}
+
 
 function audioCapture() {
    var options = {
