@@ -51,7 +51,7 @@ document.getElementById("audioCapture").addEventListener("click", audioCapture);
                                navigator.mozGetUserMedia;
 
       if (navigator.getUserMedia) {
-         navigator.getUserMedia({ audio: true, video: true },
+         navigator.getUserMedia({ audio: true, video: false },
             function(stream) {
                var video = document.querySelector('video');
                video.srcObject = stream;
