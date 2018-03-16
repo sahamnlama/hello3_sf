@@ -5,6 +5,7 @@ function onLoad() {
 // device APIs are available
 //
 function onDeviceReady() {
+  alert();
   document.getElementById("audioCapture").addEventListener("click", audioCapture);
   document.getElementById("playAudio").addEventListener("click", playAudio);
 
