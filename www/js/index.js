@@ -61,10 +61,12 @@ document.getElementById("audioCapture").addEventListener("click", audioCapture);
             },
             function(err) {
                console.log("The following error occurred: " + err.name);
+               alert(err);
             }
          );
       } else {
          console.log("getUserMedia not supported");
+         alert("getUserMedia not supported");
       }
 
 
