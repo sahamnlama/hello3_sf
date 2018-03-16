@@ -36,6 +36,12 @@ var app = {
         app.receivedEvent('deviceready');
         alert('ready');
         alert(Media);
+
+        cordova.plugins.notification.local.schedule({
+            title: 'My first notification',
+            text: 'Thats pretty easy...',
+            foreground: true
+      });
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
