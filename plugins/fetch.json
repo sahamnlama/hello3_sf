@@ -47,14 +47,6 @@
     "is_top_level": true,
     "variables": {}
   },
-  "cordova-plugin-device": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-device@~1.1.1"
-    },
-    "is_top_level": true,
-    "variables": {}
-  },
   "cordova-plugin-device-motion": {
     "source": {
       "type": "registry",
@@ -170,9 +162,25 @@
   "cordova-plugin-local-notification": {
     "source": {
       "type": "registry",
-      "id": "https://github.com/katzer/cordova-plugin-local-notifications.git"
+      "id": "cordova-plugin-local-notification@0.8.4"
     },
     "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-device": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-device"
+    },
+    "is_top_level": false,
+    "variables": {}
+  },
+  "cordova-plugin-app-event": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-app-event"
+    },
+    "is_top_level": false,
     "variables": {}
   }
 }

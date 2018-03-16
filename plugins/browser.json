@@ -19,9 +19,6 @@
     "cordova-plugin-contacts": {
       "PACKAGE_NAME": "com.helloworld"
     },
-    "cordova-plugin-device": {
-      "PACKAGE_NAME": "com.helloworld"
-    },
     "cordova-plugin-device-motion": {
       "PACKAGE_NAME": "com.helloworld"
     },
@@ -72,7 +69,10 @@
     }
   },
   "dependent_plugins": {
-    "cordova-plugin-badge": {
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.helloworld"
+    },
+    "cordova-plugin-app-event": {
       "PACKAGE_NAME": "com.helloworld"
     }
   }
