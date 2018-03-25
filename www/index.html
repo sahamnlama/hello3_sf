@@ -78,32 +78,6 @@
   <button id = "audioCapture">AUDIO</button>
   <button id = "playAudio">PLAY</button>
 
-<script>
-
-if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-  alert('getUserMedia supported.');
-  navigator.mediaDevices.getUserMedia (
-     // constraints - only audio needed for this app
-     {
-        audio: true
-     })
-
-     // Success callback
-     .then(function(stream) {
-
-
-     })
-
-     // Error callback
-     .catch(function(err) {
-        alert('The following getUserMedia error occured: ' + err);
-     }
-  );
-} else {
-  alert('getUserMedia not supported on your browser!');
-}
-</script>
-
   <script type="text/javascript" src="cordova.js"></script>
   <script type="text/javascript" src="js/index.js"></script>
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" ></script>

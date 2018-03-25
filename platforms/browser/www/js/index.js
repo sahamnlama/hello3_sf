@@ -15,13 +15,13 @@ function onLoad() {
       });
 
       $('#streamingBtn').click(function(){
-          cordova.InAppBrowser.open('http://streaming360owl.herokuapp.com/streamint_req.html', '_self', 'location=yes');
+          cordova.InAppBrowser.open('http://streaming360owl.herokuapp.com/streamint_req.html', '_self', 'location=no');
       });
 
       $('#voiceMsgBtn').click(function(){
         //window.location.replace('voice_msg.html');
-        window.location.href="https://signellingsvr360owl.herokuapp.com/voice_msg";
-          //cordova.InAppBrowser.open('https://signellingsvr360owl.herokuapp.com/voice_msg', '_self', 'location=yes');
+        //window.location.href="https://signellingsvr360owl.herokuapp.com/voice_msg";
+          cordova.InAppBrowser.open('https://signellingsvr360owl.herokuapp.com/voice_msg', '_self', 'location=no');
       });
   }
 
