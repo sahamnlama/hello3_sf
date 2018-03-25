@@ -27,7 +27,7 @@
     <meta name="msapplication-tap-highlight" content="no" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
     <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
-    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+    <meta http-equiv="Content-Security-Policy" content="default-src wss: ws: gap://ready file://* *; style-src 'self' http://* https://* 'unsafe-inline'; script-src 'self' http://* https://* 'unsafe-inline' 'unsafe-eval'; media-src *; img-src * 'self' data:">
     <!-- Good default declaration:
     * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
     * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
@@ -39,15 +39,76 @@
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
 
     <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" href="./css/buttons.css">
+    <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
     <title>Hello World</title>
+    <style>
+          #background {
+              width: 100vw;
+              height: 100vh;
+              background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+              color: white;
+              opacity: 0.95;
+          }
+    </style>
 </head>
 
-<body onload="onLoad()">
+<body onload="onLoad()" id="background">
+  <div class="container-fluid" style="">
+    <div class="row" style="">
+      <div class="col-6 text-center" style="">
+          </br></br>
+          <button  id="streamingBtn" class="button button-large button-plain button-border button-circle"><i class="far fa-caret-square-right"></i></button>
+          </br>
+          Streaming
+      </div>
+
+      <div class="col-6 text-center" style="">
+          </br></br>
+          <button id="voiceMsgBtn" class="button button-large button-plain button-border button-circle"><i class="fa fa-music"></i></button>
+          <br>
+          Voice Message
+      </div>
+    </div>
+  </div>
+
 
   <button id = "audioCapture">AUDIO</button>
   <button id = "playAudio">PLAY</button>
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
+
+<script>
+
+if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+  alert('getUserMedia supported.');
+  navigator.mediaDevices.getUserMedia (
+     // constraints - only audio needed for this app
+     {
+        audio: true
+     })
+
+     // Success callback
+     .then(function(stream) {
+
+
+     })
+
+     // Error callback
+     .catch(function(err) {
+        alert('The following getUserMedia error occured: ' + err);
+     }
+  );
+} else {
+  alert('getUserMedia not supported on your browser!');
+}
+</script>
+
+  <script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" ></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 
 </html>
